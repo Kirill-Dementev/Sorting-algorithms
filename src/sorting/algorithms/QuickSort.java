@@ -8,7 +8,7 @@ public class QuickSort implements SortAlgorithm {
         quickSort(array, 0, array.length - 1);
     }
 
-    public static void quickSort(int[] array, int low, int high) {
+    private static void quickSort(int[] array, int low, int high) {
         if (low < high) {
             int pivotIndex = partition(array, low, high);
             quickSort(array, low, pivotIndex - 1);
