@@ -1,3 +1,5 @@
+package sorting;
+
 public class InformationSort {
     private final int comparisons;
     private final int swaps;
