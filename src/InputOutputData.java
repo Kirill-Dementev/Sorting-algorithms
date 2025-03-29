@@ -17,7 +17,7 @@ public class InputOutputData {
                 }
                 numbers.add(scanner.nextInt());
                 if (numbers.size() > 100000) {
-                    throw new InvalidDataException("В файле содержиться больше 10000 чисел");
+                    throw new InvalidDataException("В файле содержиться больше 100000 чисел");
                 }
             }
         } catch (FileNotFoundException e) {
