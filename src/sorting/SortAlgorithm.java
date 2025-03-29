@@ -1,5 +1,5 @@
 package sorting;
 
 public interface SortAlgorithm {
-    void sort(int[] array);
+    InformationSort sort(int[] array);
 }
