@@ -4,8 +4,8 @@ import sorting.InformationSort;
 import sorting.SortAlgorithm;
 
 public class BubbleSort implements SortAlgorithm {
-    private int comparisons = 0;
-    private int swaps = 0;
+    private long comparisons = 0;
+    private long swaps = 0;
 
     @Override
     public InformationSort sort(int[] array) {
