@@ -36,10 +36,10 @@ public class InputOutputData {
             };
             for (int i = 0; i < result.length; i++) {
                 writer.println(algorithms[Integer.parseInt(nums[i]) - 1] + ": ");
-                writer.println("Время выполнения - " + ((double) result[i].getTime() / 1000000000) + " секунд");
-                writer.println("Затраченная память - " + (double) result[i].getMemory() / 1024 + " Кб");
-                writer.println("Количество сравнений - " + result[i].getComparisons());
-                writer.println("Количество перемещений - " + result[i].getSwaps());
+                writer.println("Время выполнения - " + ((double) result[i].time() / 1000000000) + " секунд");
+                writer.println("Затраченная память - " + (double) result[i].memory() / 1024 + " Кб");
+                writer.println("Количество сравнений - " + result[i].comparisons());
+                writer.println("Количество перемещений - " + result[i].swaps());
                 writer.println();
             }
         }
