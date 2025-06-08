@@ -29,7 +29,8 @@ public class GnomeSort implements SortAlgorithm {
 
         endTime = System.nanoTime();
         memory = (runtime.totalMemory() - runtime.freeMemory()) - initialMemory;
-        return new InformationSort(comparisons, swaps, endTime - startTime, memory);
+        return new InformationSort("Гномья сортировка (GnomeSort)",
+                comparisons, swaps, endTime - startTime, memory);
     }
 
     private void swap(int[] array, int i, int j) {

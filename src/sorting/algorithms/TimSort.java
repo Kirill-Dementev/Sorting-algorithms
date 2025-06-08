@@ -35,7 +35,8 @@ public class TimSort implements SortAlgorithm {
 
         endTime = System.nanoTime();
         memory = (runtime.totalMemory() - runtime.freeMemory()) - initialMemory;
-        return new InformationSort(comparisons, swaps, endTime - startTime, memory);
+        return new InformationSort("Гибридная сортировка (TimSort)",
+                comparisons, swaps, endTime - startTime, memory);
     }
 
     private void insertionSort(int[] array, int left, int right) {

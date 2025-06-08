@@ -1,4 +1,4 @@
 package sorting;
 
-public record InformationSort(long comparisons, long swaps, long time, long memory) {
+public record InformationSort(String name, long comparisons, long swaps, long time, long memory) {
 }

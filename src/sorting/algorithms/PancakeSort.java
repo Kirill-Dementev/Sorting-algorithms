@@ -26,7 +26,8 @@ public class PancakeSort implements SortAlgorithm {
 
         endTime = System.nanoTime();
         memory = (runtime.totalMemory() - runtime.freeMemory()) - initialMemory;
-        return new InformationSort(comparisons, swaps, endTime - startTime, memory);
+        return new InformationSort("Блинная сортировка (PancakeSort)",
+                comparisons, swaps, endTime - startTime, memory);
     }
 
     private int findMax(int[] array, int size) {

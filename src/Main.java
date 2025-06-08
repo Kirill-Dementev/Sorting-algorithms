@@ -31,9 +31,9 @@ public class Main {
         out.println("11 - Гибридная сортировка (TimSort)");
         out.println("12 - Сортировка деревом (TreeSort)");
 
-        String[] nums = scanner.nextLine().split(" ");
+        String[] numbers = scanner.nextLine().split(" ");
         List<SortAlgorithm> algorithms = new ArrayList<>();
-        for (String num: nums) {
+        for (String num: numbers) {
             switch (num.trim()) {
                 case "1" -> algorithms.add(new BubbleSort());
                 case "2" -> algorithms.add(new QuickSort());
@@ -61,7 +61,7 @@ public class Main {
         System.out.println("Введите имя выходного файла:");
         String outputFile = scanner.nextLine();
         try {
-            InputOutputData.CreateOutputFile(result, outputFile, nums);
+            InputOutputData.CreateOutputFile(result, outputFile);
             System.out.println("Отчёт записан в файл " + outputFile);
         } catch (FileNotFoundException e) {
             System.err.println("Ошибка записи в файл");

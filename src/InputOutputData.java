@@ -26,27 +26,14 @@ public class InputOutputData {
         return numbers.stream().mapToInt(i -> i).toArray();
     }
 
-    public static void CreateOutputFile(InformationSort[] result, String outputFile, String[] nums) throws FileNotFoundException {
+    public static void CreateOutputFile(InformationSort[] result, String outputFile) throws FileNotFoundException {
         try (PrintWriter writer = new PrintWriter(outputFile)) {
-            String[] algorithms = {"Пузырьковая сортировка (BubbleSort)",
-                    "Быстрая сортировка (QuickSort)",
-                    "Сортировка слиянием (MergeSort)",
-                    "Сортировка вставками (InsertionSort)",
-                    "Сортировка выбором (SelectionSort)",
-                    "Бинарная сортировка вставками (BinaryInsertionSort)",
-                    "Сортировка подсчётом (CountingSort)",
-                    "Гномья сортировка (GnomeSort)",
-                    "Пирамидальная сортировка (HeapSort)",
-                    "Блинная сортировка (PancakeSort)",
-                    "Гибридная сортировка (TimSort)",
-                    "Сортировка деревом (TreeSort)"
-            };
-            for (int i = 0; i < result.length; i++) {
-                writer.println(algorithms[Integer.parseInt(nums[i]) - 1] + ": ");
-                writer.println("Время выполнения - " + ((double) result[i].time() / 1000000000) + " секунд");
-                writer.println("Затраченная память - " + (double) result[i].memory() / 1024 + " Кб");
-                writer.println("Количество сравнений - " + result[i].comparisons());
-                writer.println("Количество перемещений - " + result[i].swaps());
+            for (InformationSort info: result) {
+                writer.println(info.name() + ": ");
+                writer.println("Время выполнения - " + ((double) info.time() / 1000000000) + " секунд");
+                writer.println("Затраченная память - " + (double) info.memory() / 1024 + " Кб");
+                writer.println("Количество сравнений - " + info.comparisons());
+                writer.println("Количество перемещений - " + info.swaps());
                 writer.println();
             }
         }
