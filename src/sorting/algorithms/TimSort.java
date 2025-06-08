@@ -25,9 +25,11 @@ public class TimSort implements SortAlgorithm {
 
         for (int size = RUN; size < array.length; size *= 2) {
             for (int left = 0; left < array.length; left += 2 * size) {
-                int mid = left + size - 1;
+                int mid = Math.min(left + size - 1, array.length - 1);
                 int right = Math.min(left + 2 * size - 1, array.length - 1);
-                merge(array, left, mid, right);
+                if (mid < right) {
+                    merge(array, left, mid, right);
+                }
             }
         }
 

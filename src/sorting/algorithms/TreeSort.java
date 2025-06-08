@@ -22,10 +22,7 @@ public class TreeSort implements SortAlgorithm {
 
     @Override
     public InformationSort sort(int[] array) {
-        long startTime;
-        long endTime;
-        long memory;
-        startTime = System.nanoTime();
+        long startTime = System.nanoTime();
         Runtime runtime = Runtime.getRuntime();
         long initialMemory = runtime.totalMemory() - runtime.freeMemory();
 
@@ -36,8 +33,8 @@ public class TreeSort implements SortAlgorithm {
         index = 0;
         inorderRec(root, array);
 
-        endTime = System.nanoTime();
-        memory = (runtime.totalMemory() - runtime.freeMemory()) - initialMemory;
+        long endTime = System.nanoTime();
+        long memory = (runtime.totalMemory() - runtime.freeMemory()) - initialMemory;
         return new InformationSort(comparisons, swaps, endTime - startTime, memory);
     }
 
@@ -49,6 +46,8 @@ public class TreeSort implements SortAlgorithm {
         comparisons++;
         if (key < node.value) {
             node.left = insert(node.left, key);
+        } else if (key > node.value) {
+            node.right = insert(node.right, key);
         } else {
             node.right = insert(node.right, key);
         }
@@ -56,20 +55,26 @@ public class TreeSort implements SortAlgorithm {
         node.height = 1 + Math.max(height(node.left), height(node.right));
         int balance = getBalance(node);
 
-        if (balance > 1 && key < node.left.value) {
-            return rotateRight(node);
+        if (balance > 1) {
+            if (node.left != null && key < node.left.value) {
+                return rotateRight(node);
+            }
+            if (node.left != null && key > node.left.value) {
+                node.left = rotateLeft(node.left);
+                return rotateRight(node);
+            }
         }
-        if (balance < -1 && key > node.right.value) {
-            return rotateLeft(node);
+
+        if (balance < -1) {
+            if (node.right != null && key > node.right.value) {
+                return rotateLeft(node);
+            }
+            if (node.right != null && key < node.right.value) {
+                node.right = rotateRight(node.right);
+                return rotateLeft(node);
+            }
         }
-        if (balance > 1 && key > node.left.value) {
-            node.left = rotateLeft(node.left);
-            return rotateRight(node);
-        }
-        if (balance < -1 && key < node.right.value) {
-            node.right = rotateRight(node.right);
-            return rotateLeft(node);
-        }
+
         return node;
     }
 
@@ -78,10 +83,15 @@ public class TreeSort implements SortAlgorithm {
     }
 
     private int getBalance(AVLTreeNode node) {
-        return (node == null) ? 0 : height(node.left) - height(node.right);
+        if (node == null) return 0;
+        return height(node.left) - height(node.right);
     }
 
     private AVLTreeNode rotateRight(AVLTreeNode prevRoot) {
+        if (prevRoot == null || prevRoot.left == null) {
+            return prevRoot;
+        }
+
         swaps++;
         AVLTreeNode newRoot = prevRoot.left;
         AVLTreeNode temp = newRoot.right;
@@ -96,6 +106,10 @@ public class TreeSort implements SortAlgorithm {
     }
 
     private AVLTreeNode rotateLeft(AVLTreeNode prevRoot) {
+        if (prevRoot == null || prevRoot.right == null) {
+            return prevRoot;
+        }
+
         swaps++;
         AVLTreeNode newRoot = prevRoot.right;
         AVLTreeNode temp = newRoot.left;
