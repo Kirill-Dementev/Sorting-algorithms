@@ -8,40 +8,46 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.List;
 
+import static java.lang.System.out;
+
 public class Main {
     public static void main(String[] args) throws InvalidDataException {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите путь к входному файлу:");
+        out.println("Введите путь к входному файлу:");
         String inputFile = scanner.nextLine();
         int[] array = InputOutputData.readNumFile(inputFile);
-        System.out.println("Выберите алгоритмы сортировки (цифры через пробел):");
-        System.out.println("1 - Пузырьковая сортировка (BubbleSort)");
-        System.out.println("2 - Быстрая сортировка (QuickSort)");
-        System.out.println("3 - Сортировка слиянием (MergeSort)");
-        System.out.println("4 - Сортировка вставками (InsertionSort)");
-        System.out.println("5 - Сортировка выбором (SelectionSort)");
+
+        out.println("Выберите алгоритмы сортировки (цифры через пробел):");
+        out.println("1 - Пузырьковая сортировка (BubbleSort)");
+        out.println("2 - Быстрая сортировка (QuickSort)");
+        out.println("3 - Сортировка слиянием (MergeSort)");
+        out.println("4 - Сортировка вставками (InsertionSort)");
+        out.println("5 - Сортировка выбором (SelectionSort)");
+        out.println("6 - Бинарная сортировка вставками (BinaryInsertionSort)");
+        out.println("7 - Сортировка подсчётом (CountingSort)");
+        out.println("8 - Гномья сортировка (GnomeSort)");
+        out.println("9 - Пирамидальная сортировка (HeapSort)");
+        out.println("10 - Блинная сортировка (PancakeSort)");
+        out.println("11 - Гибридная сортировка (TimSort)");
+        out.println("12 - Сортировка деревом (TreeSort)");
 
         String[] nums = scanner.nextLine().split(" ");
         List<SortAlgorithm> algorithms = new ArrayList<>();
         for (String num: nums) {
             switch (num.trim()) {
-                case "1":
-                    algorithms.add(new BubbleSort());
-                    break;
-                case "2":
-                    algorithms.add(new QuickSort());
-                    break;
-                case "3":
-                    algorithms.add(new MergeSort());
-                    break;
-                case "4":
-                    algorithms.add(new InsertionSort());
-                    break;
-                case "5":
-                    algorithms.add(new SelectionSort());
-                    break;
-                default:
-                    throw new InvalidDataException("Неверный выбор алгоритма");
+                case "1" -> algorithms.add(new BubbleSort());
+                case "2" -> algorithms.add(new QuickSort());
+                case "3" -> algorithms.add(new MergeSort());
+                case "4" -> algorithms.add(new InsertionSort());
+                case "5" -> algorithms.add(new SelectionSort());
+                case "6" -> algorithms.add(new BinaryInsertionSort());
+                case "7" -> algorithms.add(new CountingSort());
+                case "8" -> algorithms.add(new GnomeSort());
+                case "9" -> algorithms.add(new HeapSort());
+                case "10" -> algorithms.add(new PancakeSort());
+                case "11" -> algorithms.add(new TimSort());
+                case "12" -> algorithms.add(new TreeSort());
+                default -> throw new InvalidDataException("Неверный выбор алгоритма");
             }
         }
 

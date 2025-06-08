@@ -32,7 +32,14 @@ public class InputOutputData {
                     "Быстрая сортировка (QuickSort)",
                     "Сортировка слиянием (MergeSort)",
                     "Сортировка вставками (InsertionSort)",
-                    "Сортировка выбором (SelectionSort)"
+                    "Сортировка выбором (SelectionSort)",
+                    "Бинарная сортировка вставками (BinaryInsertionSort)",
+                    "Сортировка подсчётом (CountingSort)",
+                    "Гномья сортировка (GnomeSort)",
+                    "Пирамидальная сортировка (HeapSort)",
+                    "Блинная сортировка (PancakeSort)",
+                    "Гибридная сортировка (TimSort)",
+                    "Сортировка деревом (TreeSort)"
             };
             for (int i = 0; i < result.length; i++) {
                 writer.println(algorithms[Integer.parseInt(nums[i]) - 1] + ": ");
