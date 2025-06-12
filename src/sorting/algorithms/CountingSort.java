@@ -19,6 +19,11 @@ public class CountingSort implements SortAlgorithm {
             int max = Arrays.stream(array).max().getAsInt();
             int min = Arrays.stream(array).min().getAsInt();
             int range = max - min + 1;
+            if (range > 100000000) {
+                System.out.println("Слишком большой дипазон чисел, сортировка CountingSort не будет выполена");
+                return new InformationSort("CountingSort - не выполнена",
+                        0, 0, 0, 0);
+            }
             int[] count = new int[range];
             for (int number: array) {
                 count[number - min]++;
