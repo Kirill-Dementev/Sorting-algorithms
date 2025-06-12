@@ -20,8 +20,7 @@ public class MergeSort implements SortAlgorithm {
 
         endTime = System.nanoTime();
         memory = (runtime.totalMemory() - runtime.freeMemory()) - initialMemory;
-        return new InformationSort("Сортировка слиянием (MergeSort)",
-                comparisons, swaps, endTime - startTime, memory);
+        return new InformationSort("MergeSort", comparisons, swaps, endTime - startTime, memory);
     }
 
     private void mergeSort(int[] array, int left, int right) {

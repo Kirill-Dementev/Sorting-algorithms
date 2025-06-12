@@ -20,8 +20,7 @@ public class QuickSort implements SortAlgorithm {
 
         endTime = System.nanoTime();
         memory = (runtime.totalMemory() - runtime.freeMemory()) - initialMemory;
-        return new InformationSort("Быстрая сортировка (QuickSort)",
-                comparisons, swaps, endTime - startTime, memory);
+        return new InformationSort("QuickSort", comparisons, swaps, endTime - startTime, memory);
     }
 
     private void quickSort(int[] array, int low, int high) {

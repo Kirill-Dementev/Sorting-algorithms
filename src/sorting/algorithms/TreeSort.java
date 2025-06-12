@@ -35,8 +35,7 @@ public class TreeSort implements SortAlgorithm {
 
         long endTime = System.nanoTime();
         long memory = (runtime.totalMemory() - runtime.freeMemory()) - initialMemory;
-        return new InformationSort("Сортировка деревом (TreeSort)",
-                comparisons, swaps, endTime - startTime, memory);
+        return new InformationSort("TreeSort", comparisons, swaps, endTime - startTime, memory);
     }
 
     private AVLTreeNode insert(AVLTreeNode node, int key) {

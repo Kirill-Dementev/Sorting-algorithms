@@ -1,3 +1,8 @@
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartUtils;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 import sorting.InformationSort;
 
 import java.io.*;
@@ -37,5 +42,33 @@ public class InputOutputData {
                 writer.println();
             }
         }
+    }
+
+    public static void createTimeChart(InformationSort[] result, String fileName) throws IOException {
+        DefaultCategoryDataset dataSet = new DefaultCategoryDataset();
+
+        for (InformationSort info: result) {
+            dataSet.addValue((double) info.time() / 1000000000, "Время (сек)", info.name());
+        }
+
+        JFreeChart chart = ChartFactory.createBarChart("Сравнение времени выполнения алгоритмов",
+                "Алгоритмы", "Время (секунды)", dataSet, PlotOrientation.VERTICAL,
+                true, true, false);
+
+        ChartUtils.saveChartAsPNG(new File(fileName), chart, 1600, 1200);
+    }
+
+    public static void createMemoryChart(InformationSort[] result, String fileName) throws IOException {
+        DefaultCategoryDataset dataSet = new DefaultCategoryDataset();
+
+        for (InformationSort info: result) {
+            dataSet.addValue((double) info.memory() / 1024, "Память (Кб)", info.name());
+        }
+
+        JFreeChart chart = ChartFactory.createBarChart("Сравнение использования памяти алгоритмами",
+                "Алгоритмы", "Память (Килобайты)", dataSet, PlotOrientation.VERTICAL,
+                true, true, false);
+
+        ChartUtils.saveChartAsPNG(new File(fileName), chart, 1600, 1200);
     }
 }

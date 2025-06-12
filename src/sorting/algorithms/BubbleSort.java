@@ -36,7 +36,6 @@ public class BubbleSort implements SortAlgorithm {
 
         endTime = System.nanoTime();
         memory = (runtime.totalMemory() - runtime.freeMemory()) - initialMemory;
-        return new InformationSort("Пузырьковая сортировка (BubbleSort)",
-                comparisons, swaps, endTime - startTime, memory);
+        return new InformationSort("BubbleSort", comparisons, swaps, endTime - startTime, memory);
     }
 }

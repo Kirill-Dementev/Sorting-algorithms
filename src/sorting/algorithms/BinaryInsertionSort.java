@@ -30,7 +30,6 @@ public class BinaryInsertionSort implements SortAlgorithm {
 
         endTime = System.nanoTime();
         memory = (runtime.totalMemory() - runtime.freeMemory()) - initialMemory;
-        return new InformationSort("Бинарная сортировка вставками (BinaryInsertionSort)",
-                comparisons, swaps, endTime - startTime, memory);
+        return new InformationSort("BinaryInsertionSort", comparisons, swaps, endTime - startTime, memory);
     }
 }

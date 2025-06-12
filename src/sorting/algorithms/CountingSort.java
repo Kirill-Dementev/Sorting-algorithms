@@ -35,7 +35,7 @@ public class CountingSort implements SortAlgorithm {
 
         endTime = System.nanoTime();
         memory = (runtime.totalMemory() - runtime.freeMemory()) - initialMemory;
-        return new InformationSort("Сортировка подсчётом (CountingSort)",
+        return new InformationSort("CountingSort",
                 2L * array.length, array.length, endTime - startTime, memory);
     }
 }

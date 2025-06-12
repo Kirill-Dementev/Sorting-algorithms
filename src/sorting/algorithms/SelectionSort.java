@@ -35,7 +35,6 @@ public class SelectionSort implements SortAlgorithm {
 
         endTime = System.nanoTime();
         memory = (runtime.totalMemory() - runtime.freeMemory()) - initialMemory;
-        return new InformationSort("Сортировка выбором (SelectionSort)",
-                comparisons, swaps, endTime - startTime, memory);
+        return new InformationSort("SelectionSort", comparisons, swaps, endTime - startTime, memory);
     }
 }

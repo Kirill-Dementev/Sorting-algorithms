@@ -3,6 +3,7 @@ import sorting.SortAlgorithm;
 import sorting.algorithms.*;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -17,7 +18,7 @@ public class Main {
         String inputFile = scanner.nextLine();
         int[] array = InputOutputData.readNumFile(inputFile);
 
-        out.println("Выберите алгоритмы сортировки (цифры через пробел):");
+        out.println("Выберите алгоритмы сортировки (числа через пробел):");
         out.println("1 - Пузырьковая сортировка (BubbleSort)");
         out.println("2 - Быстрая сортировка (QuickSort)");
         out.println("3 - Сортировка слиянием (MergeSort)");
@@ -58,13 +59,21 @@ public class Main {
             result[k++] = algorithm.sort(copyArray);
         }
 
-        System.out.println("Введите имя выходного файла:");
+        out.println("Введите имя выходного файла:");
         String outputFile = scanner.nextLine();
         try {
             InputOutputData.CreateOutputFile(result, outputFile);
             System.out.println("Отчёт записан в файл " + outputFile);
         } catch (FileNotFoundException e) {
             System.err.println("Ошибка записи в файл");
+        }
+
+        try {
+            InputOutputData.createTimeChart(result, outputFile + "_time.png");
+            InputOutputData.createMemoryChart(result, outputFile + "_memory.png");
+            out.println("Диаграммы сохранны в файлы: " + outputFile + "_time.png" + ", " + outputFile + "_memory.png");
+        } catch (IOException e) {
+            System.err.println("Ошибка создания диаграммы");
         }
     }
 }

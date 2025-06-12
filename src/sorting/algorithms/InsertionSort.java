@@ -34,7 +34,6 @@ public class InsertionSort implements SortAlgorithm {
 
         endTime = System.nanoTime();
         memory = (runtime.totalMemory() - runtime.freeMemory()) - initialMemory;
-        return new InformationSort("Сортировка вставками (InsertionSort)",
-                comparisons, swaps, endTime - startTime, memory);
+        return new InformationSort("InsertionSort", comparisons, swaps, endTime - startTime, memory);
     }
 }
