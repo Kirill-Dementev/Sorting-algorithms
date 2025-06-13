@@ -71,7 +71,7 @@ public class Main {
         try {
             InputOutputData.createTimeChart(result, outputFile + "_time.png");
             InputOutputData.createMemoryChart(result, outputFile + "_memory.png");
-            out.println("Диаграммы сохранны в файлы: " + outputFile + "_time.png" + ", " + outputFile + "_memory.png");
+            out.println("Диаграммы сохраны в файлы: " + outputFile + "_time.png" + ", " + outputFile + "_memory.png");
         } catch (IOException e) {
             System.err.println("Ошибка создания диаграммы");
         }
