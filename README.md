@@ -33,7 +33,7 @@
       ```
 
 ### 2. Скачивание программы
-Скачайте последнюю версию `sorting-app.jar` из раздела [Releases GitHub репозитория](https://github.com/Kirill-Dementev/Sorting-algorithms/releases)
+Скачайте последнюю версию `sorting-app.jar` из [GitHub репозитория](https://github.com/Kirill-Dementev/Sorting-algorithms/tree/master)
 
 ### 3. Запуск программы
 В командной строке перейдите в папку с JAR-файлом и выполните:
